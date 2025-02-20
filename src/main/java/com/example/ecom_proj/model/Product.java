@@ -28,4 +28,8 @@ public class Product {
     private boolean available;
     private int quantity;
 
+    private String imgName;
+    private String imgType;
+    @Lob//large object
+    private byte[] imgData;
 }

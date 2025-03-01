@@ -25,9 +25,9 @@ public class ProductService {
     }
 
     public Product addProduct(Product product, MultipartFile imageFile) throws IOException {
-        product.setImgName(imageFile.getOriginalFilename());
-        product.setImgType(imageFile.getContentType());
-        product.setImgData(imageFile.getBytes());
+        product.setImageName(imageFile.getOriginalFilename());
+        product.setImageType(imageFile.getContentType());
+        product.setImageData(imageFile.getBytes());
 
         return repo.save(product);
     }

@@ -1,4 +1,4 @@
-INSERT INTO product (name, desc, brand, price, category, release_date, available, quantity)
+INSERT INTO product (name, description, brand, price, category, release_date, product_available, stock_quantity)
 VALUES
 ('iPhone 14', 'Latest Apple smartphone', 'Apple', 999.99, 'Electronics', NOW(), true, 48),
 ('Samsung Galaxy S23', 'Latest Samsung flagship', 'Samsung', 899.99, 'Electronics', NOW(), true, 32),

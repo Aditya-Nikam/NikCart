@@ -3,6 +3,7 @@ package com.example.ecom_proj.controller;
 import com.example.ecom_proj.model.Product;
 import com.example.ecom_proj.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.query.Param;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -74,9 +75,17 @@ public class ProductController {
     public ResponseEntity<String> deleteProduct(@PathVariable int id){
         if(service.getProduct(id).isPresent()){
           service.deleteProduct(id);
-          return new ResponseEntity<>("Product deleted succesfully", HttpStatus.OK);
+          return new ResponseEntity<>("Product deleted successfully", HttpStatus.OK);
         }
         return new ResponseEntity<>("Product not Found", HttpStatus.BAD_REQUEST);
+    }
+
+    @GetMapping("/products/search")
+    public ResponseEntity<List<Product>> searchProducts(@RequestParam String keyword){
+        System.out.println("Searching with: "+keyword);
+       List<Product> products =  service.searchProducts(keyword);
+       return new ResponseEntity<>(products, HttpStatus.OK);
+
     }
 
 }
